@@ -1,5 +1,5 @@
 import Aufgaben.iKaufEinkauf;
-import Aufgaben.blutSpendeKlinik;
+import Aufgaben.bloodDonorsClinic;
 
 import java.util.Scanner;
 
@@ -12,6 +12,8 @@ public class Main {
         switch (wert){
             case 1:
                 iKaufEinkauf.einkauf();
+                break;
+            case 2: bloodDonorsClinic.main();
                 break;
             default: System.out.println("Die Aufgabe gibt es ja nicht man, tschill");
         }

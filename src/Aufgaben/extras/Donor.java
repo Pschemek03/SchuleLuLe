@@ -1,41 +1,6 @@
-package Aufgaben;
+package Aufgaben.extras;
 
-class Patient {
-    String name;
-    String bloodGroup;
-    boolean needsPlasma;
-    boolean needsBlood;
-    String gender;
-    int age;
-
-    public Patient(String name, String bloodGroup, boolean needsPlasma, boolean needsBlood, String gender, int age) {
-        this.name = name;
-        this.bloodGroup = bloodGroup;
-        this.needsPlasma = needsPlasma;
-        this.needsBlood = needsBlood;
-        this.gender = gender;
-        this.age = age;
-    }
-
-    public String getBloodGroup() {
-        return bloodGroup;
-    }
-
-    public boolean getNeedsPlasma() {
-        return needsPlasma;
-    }
-
-    public boolean getNeedsBlood() {
-        return needsBlood;
-    }
-
-    @Override //testin Override in Java for code readability flow
-    public String toString() {
-        return name + " (" + bloodGroup + ")";
-    }
-}
-
-class Donor {
+public class Donor {
     String name;
     String bloodGroup;
     String gender;
@@ -68,16 +33,21 @@ class Donor {
 
     public boolean canDonatePlasma(Patient patient) {
         return switch (this.bloodGroup){
-          case "AB+" -> true;
-          case "AB-" -> patient.getBloodGroup().equals("AB-") || patient.getBloodGroup().equals("A-") || patient.getBloodGroup().equals("B-") || patient.getBloodGroup().equals("0-");
-
-          default -> false;
+            case "AB+" -> true;
+            case "AB-" -> patient.getBloodGroup().equals("AB-") || patient.getBloodGroup().equals("A-") || patient.getBloodGroup().equals("B-") || patient.getBloodGroup().equals("0-");
+            case "A+" -> patient.getBloodGroup().equals("A+") || patient.getBloodGroup().equals("A-") || patient.getBloodGroup().equals("0-");
+            case "A-" -> patient.getBloodGroup().equals("A-") || patient.getBloodGroup().equals("0-");
+            case "B+" -> patient.getBloodGroup().equals("B+") || patient.getBloodGroup().equals("B-") || patient.getBloodGroup().equals("0+");
+            case "B-" -> patient.getBloodGroup().equals("B-") || patient.getBloodGroup().equals("0-");
+            case "0+" -> patient.getBloodGroup().equals("0+");
+            case "0-" -> patient.getBloodGroup().equals("0-");
+            default -> false;
         };
 
     }
 
-}
-
-public class blutSpendeKlinik {
-
+    @Override
+    public String toString() {
+        return name + "(" + bloodGroup + ")";
+    }
 }
