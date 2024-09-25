@@ -13,6 +13,7 @@ public class Main {
             case 1:
                 iKaufEinkauf.einkauf();
                 break;
+
             case 2: bloodDonorsClinic.main();
                 break;
             default: System.out.println("Die Aufgabe gibt es ja nicht man, tschill");
