@@ -14,7 +14,7 @@ public class Main {
                 iKaufEinkauf.einkauf();
                 break;
 
-            case 2: bloodDonorsClinic.main();
+            case 2: bloodDonorsClinic.main(args);
                 break;
             default: System.out.println("Die Aufgabe gibt es ja nicht man, tschill");
         }
