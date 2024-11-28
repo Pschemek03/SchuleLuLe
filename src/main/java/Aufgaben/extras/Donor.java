@@ -35,9 +35,7 @@ public class Donor {
         };
     }
 
-    public boolean canDonatePlasma(Patient patient) {
-        return isPlasmaCompatible(patient.getBloodGroup());
-    }
+    public boolean canDonatePlasma(Patient patient) {return isPlasmaCompatible(patient.getBloodGroup());}
 
     private boolean isPlasmaCompatible (String patientBloodGroup) {
         return switch (this.bloodGroup){
