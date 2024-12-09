@@ -13,36 +13,14 @@ public class bloodDonorsClinic {
         ArrayList<Patient> patients = new ArrayList<>();
         ArrayList<Donor> donors = new ArrayList<>();
 
-//        readPatients("C:\\Users\\przem\\IdeaProjects\\Verzweigungen\\src\\dotText\\patients.txt", patients);
-        readDonors("C:\\Users\\przem\\IdeaProjects\\Verzweigungen\\src\\dotText\\donors.txt", donors);
+        readDonors("C:\\Users\\przem\\IdeaProjects\\SchuleLuLe\\src\\main\\dotText\\donors.txt", donors);
 
         getPatientsFromUserInput(patients);
 
-        String compatibilityFilePath = "C:\\Users\\przem\\IdeaProjects\\Verzweigungen\\src\\dotText\\compatibility.txt";
+        String compatibilityFilePath = "C:\\Users\\przem\\IdeaProjects\\SchuleLuLe\\src\\main\\dotText\\compatibility.txt";
         saveCompatibilityToFile(patients, donors, compatibilityFilePath );
 
         printCompatibilityFile(compatibilityFilePath);
-
-//        for (Patient patient : patients) {
-//            for (Donor dnr : donors) {
-//                if (patient.getNeedsBlood()){
-//                    if (dnr.canDonateBlood(patient)){
-//                        System.out.println(dnr + "Can donate blood to " + patient);
-//                    } else {
-//                        System.out.println(dnr + "Cannot donate blood to " + patient);
-//                    }
-//
-//                }
-//                if (patient.getNeedsPlasma()){
-//                    if (dnr.canDonatePlasma(patient)){
-//                        System.out.println(dnr + "Can donate plasma to " + patient);
-//                    } else {
-//                        System.out.println(dnr + "Cannot donate plasma to " + patient);
-//                    }
-//                }
-//            }
-//        }
-
     }
 
     private static void getPatientsFromUserInput(ArrayList<Patient> patients) {
@@ -62,7 +40,6 @@ public class bloodDonorsClinic {
                 continue;
             }
 
-
             try {
                 String name = tokens[0].trim();
                 String bloodGroup = tokens[1].trim();
@@ -79,25 +56,6 @@ public class bloodDonorsClinic {
             }
         }
     }
-
-//    public static void readPatients(String path, ArrayList<Patient> patients){
-//        try (BufferedReader br = new BufferedReader(new FileReader(path))){
-//            String line;
-//            while ((line = br.readLine()) != null){
-//                String[] tokens = line.split(",");
-//                String name = tokens[0];
-//                String bloodGroup = tokens[1];
-//                Boolean needsPlasma = Boolean.parseBoolean(tokens[2]);
-//                Boolean needsBlood = Boolean.parseBoolean(tokens[3]);
-//                String gender = tokens[4];
-//                int age = Integer.parseInt(tokens[5]);
-//
-//                patients.add(new Patient(name, bloodGroup, needsPlasma, needsBlood, gender, age));
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     private static void saveCompatibilityToFile(ArrayList<Patient> patients, ArrayList<Donor> donors, String path) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) {

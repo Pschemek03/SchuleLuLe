@@ -105,6 +105,7 @@ public class PokedexGUI extends JFrame {
                 pokedex.addPokemon(pokemon);
             }
         } catch (IOException e) {
+
             JOptionPane.showMessageDialog(this, "Error loading Pokédex file.", "Error", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }

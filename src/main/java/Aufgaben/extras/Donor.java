@@ -13,9 +13,9 @@ public class Donor {
         this.age = age;
     }
 
-    public String getBloodGroup() {
-        return bloodGroup;
-    }
+//    public String getBloodGroup() {
+//        return bloodGroup;
+//    }
 
     public boolean canDonateBlood(Patient patient) {
         return isBloodCompatible(patient.getBloodGroup());

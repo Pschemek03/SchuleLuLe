@@ -18,16 +18,6 @@ public class Pokedex {
         pokemonList.removeIf(pokemon -> pokemon.getName().equalsIgnoreCase(name));
     }
 
-    public void displayAllPokemon() {
-        if (pokemonList.isEmpty()) {
-            System.out.println("No Pokemon in the Pokedex.");
-        } else {
-            for (Pokemon pokemon : pokemonList) {
-                System.out.println(pokemon);
-            }
-        }
-    }
-
     public List<Pokemon> getPokemonList() {
         return pokemonList;
     }

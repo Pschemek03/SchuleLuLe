@@ -35,18 +35,6 @@ public class Pokemon {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
     public String getCustomName() {
         return customName;
     }

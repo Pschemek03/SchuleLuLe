@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class iKaufEinkauf {
     public static void einkauf() {
-        Scanner sc = new Scanner(System.in);
         Random rndm = new Random();
 
         double iKauf = rndm.nextDouble(301);
