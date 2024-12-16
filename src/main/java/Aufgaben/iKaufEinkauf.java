@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class iKaufEinkauf {
     public static void einkauf() {
-        Random rndm = new Random();
+        var rndm = new Random();
 
-        double iKauf = rndm.nextDouble(301);
+        var iKauf = rndm.nextDouble(301);
         iKauf = Math.round(iKauf);
 
         System.out.println("zu bezahlen: " + iKauf + "€");

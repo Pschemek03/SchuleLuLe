@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class KlausurVorbereitung01 {
     public static void main(String[] args) {
-        Random rand = new Random();
+        var rand = new Random();
         var wuoerfe = 0;
         var pkt = 0;
 
@@ -18,11 +18,11 @@ public class KlausurVorbereitung01 {
 
         if (durschnitt < 35) {
             System.out.println("Immerhis das Brett getroffen");
-        } else if (durschnitt >= 35 && durschnitt < 50) {
+        } else if (durschnitt < 50) {
             System.out.println("Schwacher Freizeitspieler");
-        } else if (durschnitt >= 50 && durschnitt < 60) {
+        } else if (durschnitt < 60) {
             System.out.println("Durschnittlicher Freizeitspieler");
-        } else if (durschnitt >= 60 && durschnitt < 70) {
+        } else if (durschnitt < 70) {
             System.out.println("Starker Freizeitspieler");
         } else if (durschnitt >= 70 && durschnitt < 80) {
             System.out.println("Sehr starker Freizeitspieler");

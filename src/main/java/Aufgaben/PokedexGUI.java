@@ -44,35 +44,35 @@ public class PokedexGUI extends JFrame {
         displayPanel.setLayout(new BoxLayout(displayPanel, BoxLayout.Y_AXIS));
         add(new JScrollPane(displayPanel), BorderLayout.CENTER);
 
-        JPanel panel = new JPanel();
+        var panel = new JPanel();
         panel.setLayout(new FlowLayout());
         panel.setBackground(Color.RED); // Set background color to red
 
         nameComboBox = new JComboBox<>(PokemonList.getPokemonNames());
-        JLabel nameLabel = new JLabel("Name:");
+        var nameLabel = new JLabel("Name:");
         nameLabel.setForeground(Color.WHITE); // Set text color to white
         panel.add(nameLabel);
         panel.add(nameComboBox);
 
         levelField = new JTextField(5);
-        JLabel levelLabel = new JLabel("Level:");
+        var levelLabel = new JLabel("Level:");
         levelLabel.setForeground(Color.WHITE); // Set text color to white
         panel.add(levelLabel);
         panel.add(levelField);
 
         sexComboBox = new JComboBox<>(new String[]{"♂", "♀"});
-        JLabel sexLabel = new JLabel("Sex:");
+        var sexLabel = new JLabel("Sex:");
         sexLabel.setForeground(Color.WHITE); // Set text color to white
         panel.add(sexLabel);
         panel.add(sexComboBox);
 
         customNameField = new JTextField(10);
-        JLabel customNameLabel = new JLabel("Custom Name:");
+        var customNameLabel = new JLabel("Custom Name:");
         customNameLabel.setForeground(Color.WHITE); // Set text color to white
         panel.add(customNameLabel);
         panel.add(customNameField);
 
-        JButton addButton = new JButton("Add");
+        var addButton = new JButton("Add");
         addButton.setForeground(Color.WHITE); // Set text color to white
         addButton.setBackground(Color.BLUE); // Set button color to blue
         addButton.setToolTipText("Add a new Pokémon to the Pokédex");
@@ -81,12 +81,12 @@ public class PokedexGUI extends JFrame {
 
         deleteComboBox = new JComboBox<>();
         updateDeleteComboBox();
-        JLabel deleteLabel = new JLabel("Delete:");
+        var deleteLabel = new JLabel("Delete:");
         deleteLabel.setForeground(Color.WHITE); // Set text color to white
         panel.add(deleteLabel);
         panel.add(deleteComboBox);
 
-        JButton deleteButton = new JButton("Delete");
+        var deleteButton = new JButton("Delete");
         deleteButton.setForeground(Color.WHITE); // Set text color to white
         deleteButton.setBackground(Color.BLUE); // Set button color to blue
         deleteButton.setToolTipText("Delete a Pokémon from the Pokédex");
@@ -98,7 +98,7 @@ public class PokedexGUI extends JFrame {
     }
 
     private void loadPokedexFromFile() {
-        ObjectMapper mapper = new ObjectMapper();
+        var mapper = new ObjectMapper();
         try {
             List<Pokemon> pokemonList = mapper.readValue(new File("pokedex.json"), mapper.getTypeFactory().constructCollectionType(List.class, Pokemon.class));
             for (Pokemon pokemon : pokemonList) {
@@ -112,7 +112,7 @@ public class PokedexGUI extends JFrame {
     }
 
     private void savePokedexToFile() {
-        ObjectMapper mapper = new ObjectMapper();
+        var mapper = new ObjectMapper();
         try {
             mapper.writeValue(new File("pokedex.json"), pokedex.getPokemonList());
         } catch (IOException e) {
@@ -131,15 +131,15 @@ public class PokedexGUI extends JFrame {
     private void updateDisplayPanel() {
         displayPanel.removeAll();
         for (Pokemon pokemon : pokedex.getPokemonList()) {
-            JPanel pokemonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-            URL imagePath = pokemon.getImagePath();
+            var pokemonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+            var imagePath = pokemon.getImagePath();
             JLabel iconLabel;
             if (imagePath != null) {
                 iconLabel = new JLabel(new ImageIcon(imagePath));
             } else {
                 iconLabel = new JLabel("Image not found");
             }
-            JLabel textLabel = new JLabel(pokemon.toString());
+            var textLabel = new JLabel(pokemon.toString());
             pokemonPanel.add(iconLabel);
             pokemonPanel.add(textLabel);
             displayPanel.add(pokemonPanel);
@@ -151,11 +151,11 @@ public class PokedexGUI extends JFrame {
     private class AddButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String name = (String) nameComboBox.getSelectedItem();
-            String type = PokemonList.getPokemonType(name);
-            String levelText = levelField.getText();
-            String sex = (String) sexComboBox.getSelectedItem();
-            String customName = customNameField.getText();
+            var name = (String) nameComboBox.getSelectedItem();
+            var type = PokemonList.getPokemonType(name);
+            var levelText = levelField.getText();
+            var sex = (String) sexComboBox.getSelectedItem();
+            var customName = customNameField.getText();
 
             if (!name.isEmpty() && !type.isEmpty() && !levelText.isEmpty() && !sex.isEmpty() && !customName.isEmpty()) {
                 try {
@@ -163,7 +163,7 @@ public class PokedexGUI extends JFrame {
                     if (level < 1 || level > 100) {
                         throw new NumberFormatException("Level must be between 1 and 100.");
                     }
-                    Pokemon pokemon = new Pokemon(name, type, level, sex, customName);
+                    var pokemon = new Pokemon(name, type, level, sex, customName);
                     pokedex.addPokemon(pokemon);
                     savePokedexToFile();
                     levelField.setText("");
@@ -182,9 +182,9 @@ public class PokedexGUI extends JFrame {
     private class DeleteButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String selectedItem = (String) deleteComboBox.getSelectedItem();
+            var selectedItem = (String) deleteComboBox.getSelectedItem();
             if (selectedItem != null && !selectedItem.isEmpty()) {
-                String name = selectedItem.split(" \\(")[0];
+                var name = selectedItem.split(" \\(")[0];
                 pokedex.removePokemon(name);
                 savePokedexToFile();
                 updateDeleteComboBox();
@@ -197,7 +197,7 @@ public class PokedexGUI extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            PokedexGUI gui = new PokedexGUI();
+            var gui = new PokedexGUI();
             gui.setVisible(true);
         });
     }
