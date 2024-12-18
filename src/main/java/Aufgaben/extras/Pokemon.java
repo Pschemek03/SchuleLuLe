@@ -39,6 +39,15 @@ public class Pokemon {
         return customName;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+
     @Override
     public String toString() {
         return "Pokemon: " + name + " (" + customName + ") | " + type + " | lvl. " + level + " | " + sex;

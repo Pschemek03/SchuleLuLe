@@ -18,7 +18,7 @@ public class Main {
         switch (wert) {
             case 1 -> iKaufEinkauf.einkauf();
             case 2 -> bloodDonorsClinic.main(args);
-            case 3 -> PokedexGUI.main(args);
+            case 3 -> new PokedexGUI();
             case 4 -> KlausurVorbereitung00.main(args);
             case 5 -> KlausurVorbereitung01.main(args);
             case 6 -> Klausur00.main(args);
