@@ -1,4 +1,4 @@
-package Aufgaben;
+package Aufgaben.Klausuren;
 
 import java.util.Random;
 
