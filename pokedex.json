@@ -1,1 +1,71 @@
-[{"name":"Charizard","type":"Fire/Flying","level":0,"sex":null,"customName":"gaba","imagePath":"file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/charizard.jpg"},{"name":"Venusaur","type":"Grass/Poison","level":0,"sex":null,"customName":"sasa","imagePath":"file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/venusaur.jpg"},{"name":"Bulbasaur","type":"Grass/Poison","level":0,"sex":null,"customName":"44","imagePath":"file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/bulbasaur.jpg"},{"name":"Nidoking","type":"Poison/Ground","level":0,"sex":null,"customName":"bob","imagePath":"file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/nidoking.jpg"},{"name":"Poliwrath","type":"Water/Fighting","level":0,"sex":null,"customName":"krwa","imagePath":"file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/poliwrath.jpg"},{"name":"Weepinbell","type":"Grass/Poison","level":0,"sex":null,"customName":"","imagePath":"file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/weepinbell.jpg"},{"name":"Oddish","type":"Grass/Poison","level":0,"sex":null,"customName":"","imagePath":"file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/oddish.jpg"},{"name":"Ivysaur","type":"Grass/Poison","level":12,"sex":"♀","customName":"dd","imagePath":"file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/ivysaur.jpg"},{"name":"Zubat","type":"Poison/Flying","level":42,"sex":"♂","customName":"Zubat","imagePath":"file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/zubat.jpg"}]
+[ {
+  "name" : "Ivysaur",
+  "type" : "Grass/Poison",
+  "level" : 12,
+  "sex" : "♀",
+  "customName" : "dd",
+  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/ivysaur.jpg"
+}, {
+  "name" : "Zubat",
+  "type" : "Poison/Flying",
+  "level" : 42,
+  "sex" : "♂",
+  "customName" : "Zubat",
+  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/zubat.jpg"
+}, {
+  "name" : "Abra",
+  "type" : "Psychic",
+  "level" : 31,
+  "sex" : "♀",
+  "customName" : "boris",
+  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/abra.jpg"
+}, {
+  "name" : "Doduo",
+  "type" : "Normal/Flying",
+  "level" : 22,
+  "sex" : "♀",
+  "customName" : "Doduo",
+  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/doduo.jpg"
+}, {
+  "name" : "Squirtle",
+  "type" : "Water",
+  "level" : 14,
+  "sex" : "♀",
+  "customName" : "Squirtle",
+  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/squirtle.jpg"
+}, {
+  "name" : "Venusaur",
+  "type" : "Grass/Poison",
+  "level" : 32,
+  "sex" : "♀",
+  "customName" : "Venusaur",
+  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/venusaur.jpg"
+}, {
+  "name" : "Nidorino",
+  "type" : "Poison",
+  "level" : 42,
+  "sex" : "♂",
+  "customName" : "Nidorino",
+  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/nidorino.jpg"
+}, {
+  "name" : "Charmander",
+  "type" : "Fire",
+  "level" : 1,
+  "sex" : "♀",
+  "customName" : "Charmander",
+  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/charmander.jpg"
+}, {
+  "name" : "Charmeleon",
+  "type" : "Fire",
+  "level" : 3,
+  "sex" : "♀",
+  "customName" : "Charmeleon",
+  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/charmeleon.jpg"
+}, {
+  "name" : "Charizard",
+  "type" : "Fire/Flying",
+  "level" : 13,
+  "sex" : "♀",
+  "customName" : "xd",
+  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/charizard.jpg"
+} ]
