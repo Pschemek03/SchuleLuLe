@@ -4,27 +4,33 @@ import javax.swing.*;
 import java.awt.*;
 
 public class WavyBorderPanel extends JPanel {
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        Graphics2D g2d = (Graphics2D) g;
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2d.setColor(Color.RED);
+    private static final int WAVE_HEIGHT = 10;
+    private static final int WAVE_LENGTH = 20;
 
-        int width = getWidth();
-        int height = getHeight();
-        int amplitude = 10;
-        int wavelength = 20;
-
-        for (int x = 0; x < width; x += wavelength) {
-            int y = (int) (amplitude * Math.sin((2 * Math.PI * x) / wavelength));
-            g2d.drawLine(x, height / 2 + y, x + wavelength / 2, height / 2 - y);
-            g2d.drawLine(x + wavelength / 2, height / 2 - y, x + wavelength, height / 2 + y);
-        }
+    public WavyBorderPanel() {
+        setOpaque(false);
     }
 
     @Override
-    public Dimension getPreferredSize() {
-        return new Dimension(10, 50);
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        var g2 = (Graphics2D) g.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setColor(new Color(0x2C2C2C));
+
+        var width = getWidth();
+        var height = getHeight();
+        var path = new java.awt.geom.GeneralPath();
+
+        path.moveTo(0, 0);
+        for (int x = 0; x < width; x += WAVE_LENGTH) {
+            path.quadTo(x + WAVE_LENGTH / 2, WAVE_HEIGHT, x + WAVE_LENGTH, 0);
+        }
+        path.lineTo(width, height);
+        path.lineTo(0, height);
+        path.closePath();
+
+        g2.fill(path);
+        g2.dispose();
     }
 }
