@@ -7,9 +7,13 @@ public class MethodHeads {
         var sc = new Scanner(System.in);
 
         var rnd = (int) (Math.random() * 100);
-        var rnd0 = (int) (Math.random() * 1000);
+        System.out.println(rnd);
 
-        System.out.println(MethodHeads.divideTwoNumbers(rnd, rnd));
+        var rnd0 = (int) (Math.random() * 1000);
+        System.out.println(rnd0);
+
+
+        System.out.println(MethodHeads.divideTwoNumbers(rnd0, rnd));
 
         System.out.println("Ziffernanzahl: " + MethodHeads.ziffernAnzahl(rnd0));
 
@@ -22,9 +26,14 @@ public class MethodHeads {
         System.out.println("Give me a word to check if it contains the letter E: ");
         System.out.println("Enthält e: " + new MethodHeads().enthaEltETest(sc.nextLine()));
 
-        System.out.println("Would you mind giving me your name?");
-        //System.out.println("Welcome" + new MethodHeads().welcomeMessage(sc.nextLine()));
+        System.out.println("What is your name?");
+        new MethodHeads().welcomeMessage(sc.nextLine());
 
+        System.out.println("Give me a word to check if it contains the tright amount of letters: ");
+        new MethodHeads().nameCheck(rnd, rnd, sc.nextLine());
+
+        System.out.println("Give me a word to turn it around: ");
+        new MethodHeads().textUmdrehen(sc.nextLine());
 
     }
 
@@ -57,7 +66,7 @@ public class MethodHeads {
     }
 
     public void welcomeMessage(String name) {
-        System.out.println("Welcome to the MethodHeads class!");
+        System.out.println("Welcome to the MethodHeads, " + name);
     }
 
     public boolean nameCheck(int x, int y, String name) {
