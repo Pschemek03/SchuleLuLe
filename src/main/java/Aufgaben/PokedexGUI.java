@@ -47,6 +47,11 @@ public class PokedexGUI extends JFrame {
         var iconURL = getClass().getClassLoader().getResource("Icon.png");
         setIconImage(new ImageIcon(Objects.requireNonNull(iconURL)).getImage());
 
+        pokemonCountLabel = new JLabel("Pokémon: 0");
+        pokemonCountLabel.setFont(new Font("Arial", Font.BOLD, 14));
+        pokemonCountLabel.setBorder(new RoundBorder(8, new Color(0x606060), 1));
+        pokemonCountLabel.setForeground(Color.WHITE);
+
         var titleImageURL = getClass().getClassLoader().getResource("pokeDex_Written.png");
         var titleLabel = new JLabel(titleImageURL != null ? new ImageIcon(titleImageURL) : null);
         titleLabel.setBackground(new Color(0x2C2C2C));
@@ -61,7 +66,9 @@ public class PokedexGUI extends JFrame {
         searchButton.setBorder (new CompoundBorder(new RoundBorder(6, new Color(0x007ACC), 2), new EmptyBorder(8, 20, 8, 20)));
         searchButton.addActionListener(new SearchButtonListener(this));
 
-        sortComboBox = createStyledComboBox(new String[]{"Alphabetically", "Level", "Type", "Sex"});
+        searchSortPanel.add(pokemonCountLabel);
+
+        sortComboBox = createStyledComboBox(new String[]{"Alphabetically", "Level", "Type", "Sex", "HP", "Attack", "Defense", "Speed"});
         sortComboBox.setBorder(new RoundBorder(2, new Color(0x606060), 5));
 
         sortOrderComboBox = createStyledComboBox(new String[]{"Ascending", "Descending"});
@@ -116,7 +123,6 @@ public class PokedexGUI extends JFrame {
     }
 
     private JPanel createSidePanel() {
-
         var panel = new JPanel(new GridBagLayout());
         panel.setBackground(new Color(0x2C2C2C));
 
@@ -127,8 +133,7 @@ public class PokedexGUI extends JFrame {
 
         var compareButton = createStyledButton("Compare", 0x007ACC, 0x0099FF);
         compareButton.addActionListener(new CompareButtonListener());
-        compareButton.setBorder(new CompoundBorder(new RoundBorder(10, new Color(0x00AA00), 1), new EmptyBorder(8, 20, 8, 20)));
-        compareButton.addActionListener(new AddButtonListener());
+        compareButton.setBorder(new CompoundBorder(new RoundBorder(10, new Color(0x007ACC), 1), new EmptyBorder(8, 20, 8, 20)));
         gbc.gridy++;
         panel.add(compareButton, gbc);
 
@@ -166,14 +171,12 @@ public class PokedexGUI extends JFrame {
         deleteComboBox = createStyledComboBox(new String[0]);
         updateDeleteComboBox();
         deleteComboBox.setBorder(new RoundBorder(2, new Color(0x606060), 5));
-        updateDeleteComboBox();
         gbc.gridy++;
         panel.add(deleteComboBox, gbc);
 
         deleteComboBox2 = createStyledComboBox(new String[0]);
         updateDeleteComboBox2();
         deleteComboBox2.setBorder(new RoundBorder(2, new Color(0x606060), 5));
-        updateDeleteComboBox2();
         gbc.gridy++;
         panel.add(deleteComboBox2, gbc);
 
@@ -192,6 +195,8 @@ public class PokedexGUI extends JFrame {
         label.setForeground(new Color(0xE0E0E0));
         return label;
     }
+
+    private JLabel pokemonCountLabel;
 
 
     private JTextField createStyledTextField(int columns) {
@@ -377,6 +382,7 @@ public class PokedexGUI extends JFrame {
                 pokedex.removePokemon(name);
                 savePokedexToFile();
                 updateDeleteComboBox();
+                updateDeleteComboBox2(); // Update both combo boxes
                 updateDisplayPanel();
             } else {
                 JOptionPane.showMessageDialog(PokedexGUI.this, "Please select a Pokémon to delete.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -401,6 +407,7 @@ public class PokedexGUI extends JFrame {
             List<Pokemon> sortedList = filteredList.stream().sorted(getComparator(Objects.requireNonNull(sortCriteria), sortOrder)).collect(Collectors.toList());
 
             updateDisplayPanel(sortedList);
+            updatePokemonCount(filteredList.size());
         }
 
         private Comparator<Pokemon> getComparator(String criteria, String order) {
@@ -428,31 +435,32 @@ public class PokedexGUI extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             String selected1 = (String) deleteComboBox.getSelectedItem();
-            String selected2 = (String) deleteComboBox2.getSelectedItem(); //opp
+            String selected2 = (String) deleteComboBox2.getSelectedItem();
 
             if (selected1 != null && selected2 != null) {
-                var pokemon1 = pokedex.getPokemonList().stream()
-                        .filter(p -> (p.getName() + " (" + p.getCustomName() + ")").equals(selected1))
-                        .findFirst()
-                        .orElse(null);
+                var pokemon1 = pokedex.getPokemonList().stream().filter(p -> (p.getName() + " (" + p.getCustomName() + ")").equals(selected1)).findFirst().orElse(null);
 
-                var pokemon2 = pokedex.getPokemonList().stream()
-                        .filter(p -> (p.getName() + " (" + p.getCustomName() + ")").equals(selected2))
-                        .findFirst()
-                        .orElse(null);
+                var pokemon2 = pokedex.getPokemonList().stream().filter(p -> (p.getName() + " (" + p.getCustomName() + ")").equals(selected2)).findFirst().orElse(null);
 
                 if (pokemon1 != null && pokemon2 != null) {
-                    // Open the comparison panel
                     var comparePanel = new ComparePanel(pokemon1, pokemon2);
                     var frame = new JFrame("Pokémon Comparison");
+
+                    var iconURL = getClass().getClassLoader().getResource("Icon.png");
+                    assert iconURL != null;
+                    frame.setIconImage(new ImageIcon(iconURL).getImage());
+
                     frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                     frame.add(comparePanel);
                     frame.pack();
                     frame.setLocationRelativeTo(null);
                     frame.setVisible(true);
+
                 } else {
                     JOptionPane.showMessageDialog(PokedexGUI.this, "Please select two Pokémon to compare.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
+            } else {
+                JOptionPane.showMessageDialog(PokedexGUI.this, "Please select two Pokémon to compare.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -462,6 +470,10 @@ public class PokedexGUI extends JFrame {
         for (var pokemon : pokedex.getPokemonList()) {
             deleteComboBox2.addItem(pokemon.getName() + " (" + pokemon.getCustomName() + ")");
         }
+    }
+
+    private void updatePokemonCount(int count) {
+        pokemonCountLabel.setText("Pokémon: " + count);
     }
 
     public static void main(String[] args) {
