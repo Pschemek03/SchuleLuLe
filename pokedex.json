@@ -10,7 +10,7 @@
   "level" : 31,
   "sex" : "♂",
   "customName" : "33",
-  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/bulbasaur.jpg"
+  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLule/target/classes/Aufgaben/extras/pokemons/bulbasaur.jpg"
 }, {
   "name" : "Golbat",
   "type" : "Poison/Flying",
@@ -23,7 +23,7 @@
   "level" : 66,
   "sex" : "♂",
   "customName" : "ada",
-  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/golbat.jpg"
+  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLule/target/classes/Aufgaben/extras/pokemons/golbat.jpg"
 }, {
   "name" : "Clefairy",
   "type" : "Fairy",
@@ -36,7 +36,7 @@
   "level" : 14,
   "sex" : "♀",
   "customName" : "Bebek",
-  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/clefairy.jpg"
+  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLule/target/classes/Aufgaben/extras/pokemons/clefairy.jpg"
 }, {
   "name" : "Nidoran♂",
   "type" : "Poison",
@@ -49,7 +49,7 @@
   "level" : 45,
   "sex" : "♂",
   "customName" : "Nidoran♂",
-  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/nidoran%e2%99%82.jpg"
+  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLule/target/classes/Aufgaben/extras/pokemons/nidoran%e2%99%82.jpg"
 }, {
   "name" : "Oddish",
   "type" : "Grass/Poison",
@@ -62,7 +62,7 @@
   "level" : 66,
   "sex" : "♀",
   "customName" : "Oddish",
-  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/oddish.jpg"
+  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLule/target/classes/Aufgaben/extras/pokemons/oddish.jpg"
 }, {
   "name" : "Mankey",
   "type" : "Fighting",
@@ -75,5 +75,18 @@
   "level" : 1,
   "sex" : "♀",
   "customName" : "Mankey",
-  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLuLe/target/classes/Aufgaben/extras/pokemons/mankey.jpg"
+  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLule/target/classes/Aufgaben/extras/pokemons/mankey.jpg"
+}, {
+  "name" : "Kadabra",
+  "type" : "Psychic",
+  "dexId" : 64,
+  "hp" : 40,
+  "attack" : 35,
+  "defense" : 30,
+  "special" : 120,
+  "speed" : 105,
+  "level" : 66,
+  "sex" : "♂",
+  "customName" : "Kadabra",
+  "imagePath" : "file:/C:/Users/przem/IdeaProjects/SchuleLule/target/classes/Aufgaben/extras/pokemons/kadabra.jpg"
 } ]
