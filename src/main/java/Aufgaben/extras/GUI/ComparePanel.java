@@ -3,7 +3,6 @@ package Aufgaben.extras.GUI;
 import Aufgaben.extras.*;
 import javax.swing.*;
 import java.awt.*;
-import java.util.Map;
 
 public class ComparePanel extends JPanel {
     private final Pokemon pokemon1;
@@ -46,7 +45,7 @@ public class ComparePanel extends JPanel {
         var typeLabel = new JLabel("Type: " + pokemon.getType(), SwingConstants.CENTER);
         typeLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         typeLabel.setForeground(Color.WHITE);
-        typeLabel.setToolTipText(getTypeEffectivenessTooltip(pokemon.getType()));
+        //typeLabel.setToolTipText(getTypeEffectivenessTooltip(pokemon.getType()));
         namePanel.add(typeLabel);
 
         panel.add(namePanel, BorderLayout.CENTER);
@@ -93,17 +92,6 @@ public class ComparePanel extends JPanel {
         } catch (NumberFormatException e) {
             return Color.WHITE;
         }
-    }
-
-    private String getTypeEffectivenessTooltip(String type) {
-        StringBuilder tooltip = new StringBuilder("Type Effectiveness for " + type + ":\n");
-        Map<String, Double> effectiveness = TypeEffectiveness.effectivenessMap.get(type);
-        if (effectiveness != null) {
-            effectiveness.forEach((otherType, multiplier) -> {
-                tooltip.append(String.format("- Against %s: %.1fx\n", otherType, multiplier));
-            });
-        }
-        return tooltip.toString();
     }
 
 }
